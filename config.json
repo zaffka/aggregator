@@ -1,0 +1,61 @@
+{
+    "generators": [
+        {
+            "timeout_s": 30,
+            "send_period_s": 1,
+            "data_sources": [
+                {
+                    "id": "data_1",
+                    "init_value": 50,
+                    "max_change_step": 5
+                },
+                {
+                    "id": "data_2",
+                    "init_value": 60,
+                    "max_change_step": 7
+                },
+                {
+                    "id": "data_5",
+                    "init_value": 10,
+                    "max_change_step": 3
+                }
+            ]
+        },
+        {
+            "timeout_s": 20,
+            "send_period_s": 1,
+            "data_sources": [
+                {
+                    "id": "data_7",
+                    "init_value": 20,
+                    "max_change_step": 4
+                },
+                {
+                    "id": "data_8",
+                    "init_value": 30,
+                    "max_change_step": 6
+                }
+            ]
+        }
+    ],
+    "agregators": [
+        {
+            "sub_ids": [
+                "data_1",
+                "data_7"
+            ],
+            "agregate_period_s": 10
+        },
+        {
+            "sub_ids": [
+                "data_2",
+                "data_5"
+            ],
+            "agregate_period_s": 20
+        }
+    ],
+    "queue": {
+        "size": 50
+    },
+    "storage_type": 0
+}
