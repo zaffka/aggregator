@@ -1,0 +1,25 @@
+run:
+  timeout: 5m
+
+linters:
+  fast: false
+  enable-all: true
+  disable:
+    - dupl
+    - gochecknoglobals
+    - gochecknoinits
+    - funlen
+    - godox
+    - wsl
+    - gocognit
+    - maligned
+    - gomnd
+    - noctx
+    - unparam
+    - gci
+    - gofumpt
+    - testpackage
+    - exhaustivestruct
+    - dogsled
+    - gosec
+    - paralleltest

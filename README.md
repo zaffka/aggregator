@@ -1,3 +1,16 @@
+# Simple message queue
+It is a test assignment I've got from a potential employer.  
+Our negotiations had finished before I started the realization, but I found the assignment interesting and spent some time playing with it. 
+
+I've found some of the preconditions incorrect, so the realization does not 100% fit the conditions.
+
+I've simplified the queue's topics initialization process to avoid mutexes usage. Topics are creating during the queue instantiation, so I don't need to dynamically make them when the aggregators or generators handle the queue.
+
+More of that, the assignment doesn't have enough unit tests, storage part remained unrealized - I didn't want to spend too much time.
+
+But, if you are interested - you can check all the stuff below.
+
+# Architecture
 ![scheme](scheme.jpg)
 # Input config
 
@@ -18,10 +31,10 @@
         },
         ...
     ],
-    "agregators": [
+    "aggregators": [
         {
-            "sub_ids":                  ["data_1],  // array of dataIds that agregator subscribes to
-            "agregate_period_s":        10          // period in seconds to collect and process data
+            "sub_ids":                  ["data_1],  // array of dataIds that aggregator subscribes to
+            "aggregate_period_s":        10          // period in seconds to collect and process data
         }
     ],
     "queue": {
@@ -42,7 +55,7 @@ For every data source, value changes in time starting with initial point (`init_
 ## Message queue
 
 Basic FIFO buffer with single input and multiple output.
-Queue output should be implemented as pub / sub broker.
+Queue should be implemented as pub / sub broker.
 Once all generators are stopped, queue must be notified about that event in order to notify all output listeners.
 
 ## Aggregator

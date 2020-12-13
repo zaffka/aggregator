@@ -1,61 +1,60 @@
 {
     "generators": [
         {
-            "timeout_s": 30,
-            "send_period_s": 1,
+            "timeout_s": 3,
+            "sending_period_s": 1,
             "data_sources": [
                 {
                     "id": "data_1",
                     "init_value": 50,
-                    "max_change_step": 5
+                    "max_change_step": 10
                 },
                 {
                     "id": "data_2",
                     "init_value": 60,
-                    "max_change_step": 7
+                    "max_change_step": 15
                 },
                 {
                     "id": "data_5",
                     "init_value": 10,
-                    "max_change_step": 3
+                    "max_change_step": 10
                 }
             ]
         },
         {
-            "timeout_s": 20,
-            "send_period_s": 1,
+            "timeout_s": 4,
+            "sending_period_s": 1,
             "data_sources": [
                 {
                     "id": "data_7",
                     "init_value": 20,
-                    "max_change_step": 4
+                    "max_change_step": 20
                 },
                 {
                     "id": "data_8",
                     "init_value": 30,
-                    "max_change_step": 6
+                    "max_change_step": 30
                 }
             ]
         }
     ],
-    "agregators": [
+    "aggregators": [
         {
-            "sub_ids": [
+            "sub_sources": [
                 "data_1",
-                "data_7"
+                "data_7",
+                "data_no"
             ],
-            "agregate_period_s": 10
+            "work_duration_s": 5
         },
         {
-            "sub_ids": [
+            "sub_sources": [
                 "data_2",
                 "data_5"
             ],
-            "agregate_period_s": 20
+            "work_duration_s": 9
         }
     ],
-    "queue": {
-        "size": 50
-    },
+    "msg_queue_length": 20,
     "storage_type": 0
 }
