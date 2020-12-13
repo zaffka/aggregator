@@ -10,6 +10,13 @@ More of that, the assignment doesn't have enough unit tests, storage part remain
 
 But, if you are interested - you can check all the stuff below.
 
+# How to run
+Just say `make run`.  
+The command will make Docker image and runs the container using a compose file.  
+Of course, you need docker and docker-compose installed.  
+
+Use `docker logs [container]` to read logs of the running app, `make down` to stop the container with the app.
+
 # Architecture
 ![scheme](scheme.jpg)
 # Input config
