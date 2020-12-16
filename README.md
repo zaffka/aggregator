@@ -17,6 +17,35 @@ Of course, you need docker and docker-compose installed.
 
 Use `docker logs [container]` to read logs of the running app, `make down` to stop the container with the app.
 
+# Project structure
+```
+.
+├── config                  # Configuration file parser package
+│   ├── bad_conf_file.json
+│   ├── config.go
+│   ├── config_test.go
+│   └── ok_conf_file.json
+├── domain                  # App's shared types and interfaces
+│   ├── interfaces.go
+│   └── types.go
+├── exec                    # Package to execute queue's publishers\subscribers
+│   ├── exec.go
+│   └── internal            # Set of executors
+│       ├── aggregator.go
+│       ├── aggregators.go
+│       ├── generator.go
+│       ├── generators.go
+│       └── helpers.go
+├── log                     # Uber's zap logger init
+│   └── log.go
+├── queue                   # Basic queue
+│   └── queue.go
+├── shutdown                # Shutdown control package
+│   └── shutdown.go
+└── storage                 # Storage package UNREALIZED
+    └── storage.go
+```
+
 # Architecture
 ![scheme](scheme.jpg)
 # Input config
